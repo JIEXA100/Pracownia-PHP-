@@ -15,11 +15,17 @@
              $Szkola = $_POST['school'];
              $Adres = $_POST['adr'];
              $Tele = $_POST['tel'];
-    $query = "Insert into tabela_kapshuk(login, haslo, imie, nazwisko, szkola, adres, telefon) 
-    values('$Login', '$Haslo', '$Imie', '$Nazwisko', '$Szkola', '$Adres', '$Tele')";
-    $run =mysqli_query($con,$query) or die(mysqli_error());
 
-    echo "Konto zostało utworzone!";
+             if (mysql_num_rows(mysql_query("select login FROM tabela_kapshuk where login = '$login';")) == 0)
+        {
+            $query = "Insert into tabela_kapshuk(login, haslo, imie, nazwisko, szkola, adres, telefon) 
+            values('$Login', '$Haslo', '$Imie', '$Nazwisko', '$Szkola', '$Adres', '$Tele')";
+            $run =mysqli_query($con,$query) or die(mysqli_error());
+
+            echo "Konto zostało utworzone!";
+        }
+        else echo "Podany login jest już zajęty.";
+    
        }
 
    
@@ -39,3 +45,4 @@ Telefon:<input type="text" name="tel"><br>
 <form action="logowanie_kapshuk.php" method="post">
     <input name="next" type="submit" value="Przejdź do logowania">
 </form>
+
