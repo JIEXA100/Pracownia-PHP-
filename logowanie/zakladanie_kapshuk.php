@@ -16,7 +16,7 @@
              $Adres = $_POST['adr'];
              $Tele = $_POST['tel'];
 
-             if (mysql_num_rows(mysql_query("select login FROM tabela_kapshuk where login = '$login';")) == 0)
+             if (mysql_num_rows(mysql_query("select login FROM tabela_kapshuk where login = '$Login';")) == 0)
         {
             $query = "Insert into tabela_kapshuk(login, haslo, imie, nazwisko, szkola, adres, telefon) 
             values('$Login', '$Haslo', '$Imie', '$Nazwisko', '$Szkola', '$Adres', '$Tele')";
