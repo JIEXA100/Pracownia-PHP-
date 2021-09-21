@@ -15,7 +15,9 @@
    $query = "select login, haslo from tabela_kapshuk WHERE login='$Login' AND haslo='$Haslo'";
    $run =mysqli_query($con,$query) or die(mysqli_error());
 
-   if (mysqli_num_rows(mysqli_query("select login, haslo FROM uzytkownicy WHERE login = '$Login' AND haslo = '$Haslo';")) > 0)
+   $result = $con->query($query);
+
+   if ($result->num_rows > 0)
         {
             $x = "$Nowe";
             $wym = '/[A-Z]/';

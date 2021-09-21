@@ -10,12 +10,21 @@
 		 {
              $Login = $_POST['log'];
              $Haslo = $_POST['pas'];
-   $query = "select * from tabela_kapshuk WHERE login='$Login' AND haslo='$Haslo'";
-   $run =mysqli_query($con,$query) or die(mysqli_error());
+             
+   $query = "select login, haslo FROM tabela_kapshuk WHERE login = '$Login' AND haslo = '$Haslo'";
 
-   if (mysqli_num_rows(mysqli_query("select login, haslo FROM uzytkownicy WHERE login = '$Login' AND haslo = '$Haslo';")) > 0)
+   $konto = "select admin FROM tabela_kapshuk WHERE login = '$Login' AND haslo = '$Haslo'";
+   $run =mysqli_query($con,$query) or die(mysqli_error($con));
+   
+   
+   $result = $con->query($query);
+   //$warunek = "select login, haslo FROM uzytkownicy WHERE login = '$Login' AND haslo = '$Haslo'";
+   //$res = $con->query($que);
+                //if($res->num_rows>0)
+
+   if ($result->num_rows > 0)
         {
-            header( 'Location: zmiana_hasla_kapshuk.php' );
+            header( 'Location: http://localhost/ok08/logowanie/Connection.php' );
         }
         else 
         {
