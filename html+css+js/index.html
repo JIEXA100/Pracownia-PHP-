@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div id="head">
+        <a href="https://pl.wikipedia.org/wiki/Burgundia">
+        <img src="burgundia.png">
+        </a>
+        <p style="text-align:center;">Bitwa Burgundyjska</p>
+    </div>
+    <div id="red">
+        Nasza armia składa się z:<br>
+        <div id="nasza">
+        </div>
+        Armia wroga natomiast nalicza:<br>
+        <div id="wroga">
+        </div>
+    </div>
+    <div id="blue">
+        Podaj ile jest artylerzystów: <input type="number" id="art"><br>
+        Podaj ile jest kawalerzystów: <input type="number" id="kaw"><br>
+        Podaj ile jest muszkieterów: <input type="number" id="musz"><br>
+        <input type="button" onclick="Pokaz()" value="Pokaż">
+        <input type="button" onclick="Wrogi()" value="Pokaż wrogów">
+    </div>
+    <div id="foot"> 
+        <img src ="rycerz.gif" id="kon">
+        <img src ="smok.gif" id="smok">
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function Tytul()
+    {
+        var kolor = Math.floor(Math.random() * (99999)) + 66666;
+        style.head.color = "#" + kolor;
+
+    }
+        function Pokaz() 
+        {
+            Tytul();
+            var artil = parseInt(art.value);
+            var kawil = parseInt(kaw.value);
+            var muszil = parseInt(kaw.value);
+
+            nasza.innerHTML += artil + " artylerzystów " + kawil + " kawalerzystów " + muszil + " muszkieterów " ;
+        }
+
+        function Wrogi()
+        {
+            Tytul();
+            var artil = parseInt(art.value);
+            var kawil = parseInt(kaw.value);
+            var muszil = parseInt(kaw.value);
+
+            var losart = Math.floor(Math.random() * (20 - 2 + 1)) + 2;
+            var loskaw = Math.floor(Math.random() * (20 - 2 + 1)) + 2;
+            var losmusz = Math.floor(Math.random() * (20 - 2 + 1)) + 2;
+
+            var artw = Math.pow(artil,losart);
+            var kaww = Math.pow(kawil,loskaw);
+            var muszw = Math.pow(muszil,losmusz);
+
+            wroga.innerHTML += artw + " artylerzystów " + kaww + " kawalerzystów " + muszw + " muszkieterów " ;
+        }
+</script>
+</html>
