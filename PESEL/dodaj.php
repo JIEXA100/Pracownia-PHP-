@@ -18,5 +18,6 @@
    $run =mysqli_query($con,$query) or die(mysqli_error($con));
    
    echo "Film " . $Tytul . " został dodany do bazy";
+   mysqli_close($con);
          }
 ?>
