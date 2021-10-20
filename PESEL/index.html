@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Filmy</title>
+        <link rel="stylesheet" href="styl1.css">
+    </head>
+    <body>
+        <div id="lewy">
+            <h3>Dostępne gatunki filmu</h3>
+            <OL>
+                <li>Sci-Fi</li>
+                <li>animacja</li>
+                <li>dramat</li>
+                <li>horror</li>
+                <li>komedia</li>
+            </OL>
+            <p><a href="kadr.jpg">Pobierz obraz</a></p>
+            <p><a href="repertuar-kin.pl">Sprawdź repertuar kin</a></p>
+        </div>
+        <div>
+            <div id="pierwszy">
+                <h1>FILMOTEKA</h1>
+            </div>
+            <div id="drugi">
+                <form action="dodaj.php" method="post">
+                    Tytuł <input name="titl" type="text"><br>
+                    Gatunek filmu: <input name="gat" type="number"><br>
+                    Rok produkcji: <input name="prod" type="number"><br>
+                    Ocena: <input name="mark" type="number"><br>
+                    <input type="reset" value="CZYŚĆ">
+                    <input name="sub" type="submit" value="DODAJ">
+                </form>
+            </div>
+            <div id="trzeci">
+                <img src="kadr.jpg" alt="zdjęcia filmowe">
+            </div>
+        </div>
+        <div id="stopka">
+            <p>Autor strony: Oleksii Kapshuk</p>
+        </div>
+    </body>
+</html>
