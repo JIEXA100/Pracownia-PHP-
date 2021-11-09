@@ -29,13 +29,34 @@ else{
 		 {
              $Id = $_GET['idnt'];
 $query1 = "delete from 4g where Id = $Id";
-$run =mysqli_query($con,$query1) or die(mysqli_error());
+$run =mysqli_query($con,$query1) or die(mysqli_error($con));
          }
+
+         if(isset($_GET['zm']))
+         {
+                $zId = $_GET['zidnt'];
+                $zzId = $_GET['zzidnt'];
+                $zname = $_GET['zimie'];
+                $zsurname = $_GET['znazw'];
+                $zhoby = $_GET['zhobby'];
+    $query3 = "update 4g set Id = '$zzId', Imie = '$zname', Nazwisko = '$zsurname', Hobby = '$zhoby' where Id = $zId";
+    $check = "select * from 4g where Id = $zzId";
+    if(mysqli_num_rows(mysqli_query($con,$check)) != 1)
+    {
+    $run =mysqli_query($con,$query3) or die(mysqli_error($con));
+    }
+    else
+    {
+      echo '<script type ="text/JavaScript">';  
+      echo 'alert("Nieprawidłowo wprowadzony ID!")'; 
+      echo '</script>';
+    }
+             }
 
 if(isset($_GET['sort']))
 		 {
-$query2 = "select * from 4g order by Imie";
-$run =mysqli_query($con,$query2) or die(mysqli_error());
+$query2 = "select * from 4g order by 4g.imie";
+$run =mysqli_query($con,$query2) or die(mysqli_error($con));
          }
 
 
@@ -85,6 +106,16 @@ Hobby:<input type="text" name="hobby"><br>
 USUWANIE DANYCH: <br>
 Podaj Identyfikator:<input type="text" name="idnt"><br>
 <input name="del" type="submit" value="usun">
+</form>
+
+<form action="" method="get">
+UPDATE DANYCH: <br>
+Podaj Identyfikator:<input type="text" name="zidnt"><br>
+Podaj zmieniony Identyfikator:<input type="text" name="zzidnt"><br>
+Zmienione Imie:<input type="text" name="zimie"><br>
+Zmienione Nazwisko:<input type="text" name="znazw"><br>
+Zmienione Hobby:<input type="text" name="zhobby"><br>
+<input name="zm" type="submit" value="Zmień">
 </form>
 
 <form action="" method="get">
