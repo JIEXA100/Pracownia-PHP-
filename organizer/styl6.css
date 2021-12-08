@@ -1,0 +1,54 @@
+body
+{
+    margin: 0px;
+    font-family: Georgia;
+}
+
+.baner1
+{
+    background-color: #3CB371;
+    color: #fff;
+    height: 100px;
+    width: 40%;
+    float: left;
+}
+
+.baner2
+{
+    background-color: #3CB371;
+    color: #fff;
+    height: 100px;
+    width: 40%;
+    float: left;
+}
+
+.baner3
+{
+    background-color: #3CB371;
+    height: 100px;
+    width: 20%;
+    float: left;
+}
+.glowny > div 
+{
+    background-color: #ffdab9;
+    width: 170px;
+    height: 90px;
+    margin: 5px;
+    border: 1px solid #3cb371;
+    float: left;
+}
+
+footer 
+{
+    background-color: #3cb371;
+    color: white;
+    clear: both;
+}
+
+h6 {    
+    text-align: right;
+}
+form {
+    padding: 30px;
+}
